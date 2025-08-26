@@ -40,89 +40,10 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-// fonction composable pour le text composable
 @Composable
-fun TextComposable(title: String, content: String, modifier: Modifier = Modifier) {
-    Surface(
-        color = Color(0xFFEADDFF),
-        modifier = modifier.fillMaxSize() // la surface occupe tout l'espace disponible
-    ) {
-        Column (
-            verticalArrangement = Arrangement.Center, // centre verticalement
-            horizontalAlignment = Alignment.CenterHorizontally, // centre horizontalement
-            modifier = Modifier.padding(16.dp)
-
-        ) {
-            Text(
-                text = title,
-                fontWeight = FontWeight.Bold, // text en gras
-                modifier = Modifier.padding(bottom = 16.dp) // marge inferieure de 16 dp
-
-            )
-            Text(
-                text = content,
-                textAlign = TextAlign.Justify // texte justifié
-            )
-        }
-
-    }
-}
-
-// fonction composable pour l'image composable
-@Composable
-fun ImageComposable(title: String, content: String, modifier: Modifier = Modifier) {
+fun Compose(title: String, content: String, backgroundColor: Long, modifier: Modifier = Modifier) {
     Surface (
-        color = Color(0xFFD0BCFF),
-        modifier = modifier.fillMaxSize()
-    ) {
-        Column(
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.padding(16.dp)
-        ) {
-            Text(
-                text = title,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(bottom = 16.dp)
-            )
-            Text(
-                text = content,
-                textAlign = TextAlign.Justify
-            )
-        }
-    }
-}
-
-// fonction composable pour le row composable
-@Composable
-fun RowComposable(title: String, content: String, modifier: Modifier = Modifier) {
-    Surface (
-        color = Color(0xFFB69DF8),
-        modifier = modifier.fillMaxSize()
-    ) {
-        Column(
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.padding(16.dp)
-        ) {
-            Text(
-                text = title,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(bottom = 16.dp)
-            )
-            Text(
-                text = content,
-                textAlign = TextAlign.Justify
-            )
-        }
-    }
-}
-
-// fonction composable pour le column composable
-@Composable
-fun ColumnComposable(title: String, content: String, modifier: Modifier = Modifier) {
-    Surface (
-        color = Color(0xFFF6EDFF),
+        color = Color(backgroundColor),
         modifier = modifier.fillMaxSize()
     ) {
         Column(
@@ -154,15 +75,17 @@ fun AllComposes(modifier: Modifier = Modifier) {
                 .weight(1f) // la ligne occupe 1/2 de l'espace disponible
                 .fillMaxWidth() // la ligne occupe toute la largeur disponible
         ) {
-            TextComposable(
+            Compose(
                 stringResource(R.string.TitleComposableText),
                 stringResource(R.string.ContentComposableText),
+                0xFFEADDFF,
                 modifier = Modifier
                     .weight(1f) // la colonne occupe 1/2 de l'espace disponible //
             )
-            ImageComposable(
+            Compose(
                 stringResource(R.string.TitleComposableImage),
                 stringResource(R.string.ContentComposableImage),
+                0xFFD0BCFF,
                 modifier = Modifier
                     .weight(1f)
             )
@@ -173,22 +96,22 @@ fun AllComposes(modifier: Modifier = Modifier) {
                 .weight(1f)
                 .fillMaxWidth()
         ) {
-            RowComposable(
+            Compose(
                 stringResource(R.string.TitleComposableRow),
                 stringResource(R.string.ContentComposableRow),
+                0xFFB69DF8,
                 modifier = Modifier
                     .weight(1f)
             )
-            ColumnComposable(
+            Compose(
                 stringResource(R.string.TitleComposableColumn),
                 stringResource(R.string.ContentComposableColumn),
+                0xFFF6EDFF,
                 modifier = Modifier
                     .weight(1f)
             )
         }
     }
-
-
 }
 
 @Preview(showBackground = true)
