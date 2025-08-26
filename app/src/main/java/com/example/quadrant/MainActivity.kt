@@ -50,7 +50,7 @@ fun TextComposable(title: String, content: String, modifier: Modifier = Modifier
         Column (
             verticalArrangement = Arrangement.Center, // centre verticalement
             horizontalAlignment = Alignment.CenterHorizontally, // centre horizontalement
-            modifier = modifier.padding(16.dp)
+            modifier = Modifier.padding(16.dp)
 
         ) {
             Text(
@@ -78,7 +78,7 @@ fun ImageComposable(title: String, content: String, modifier: Modifier = Modifie
         Column(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = modifier.padding(16.dp)
+            modifier = Modifier.padding(16.dp)
         ) {
             Text(
                 text = title,
@@ -103,7 +103,7 @@ fun RowComposable(title: String, content: String, modifier: Modifier = Modifier)
         Column(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = modifier.padding(16.dp)
+            modifier = Modifier.padding(16.dp)
         ) {
             Text(
                 text = title,
@@ -128,7 +128,7 @@ fun ColumnComposable(title: String, content: String, modifier: Modifier = Modifi
         Column(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = modifier.padding(16.dp)
+            modifier = Modifier.padding(16.dp)
         ) {
             Text(
                 text = title,
@@ -150,38 +150,39 @@ fun AllComposes(modifier: Modifier = Modifier) {
         modifier = modifier.fillMaxSize()
     ) {
         Row (
-            modifier = modifier
+            modifier = Modifier
                 .weight(1f) // la ligne occupe 1/2 de l'espace disponible
                 .fillMaxWidth() // la ligne occupe toute la largeur disponible
         ) {
             TextComposable(
                 stringResource(R.string.TitleComposableText),
                 stringResource(R.string.ContentComposableText),
-                modifier = modifier.weight(1f) // la colonne occupe 1/2 de l'espace disponible //
+                modifier = Modifier
+                    .weight(1f) // la colonne occupe 1/2 de l'espace disponible //
             )
             ImageComposable(
                 stringResource(R.string.TitleComposableImage),
                 stringResource(R.string.ContentComposableImage),
-                modifier = modifier.weight(1f)
+                modifier = Modifier
+                    .weight(1f)
             )
         }
 
         Row (
-            modifier = modifier
+            modifier = Modifier
                 .weight(1f)
                 .fillMaxWidth()
         ) {
             RowComposable(
                 stringResource(R.string.TitleComposableRow),
                 stringResource(R.string.ContentComposableRow),
-                modifier = modifier
+                modifier = Modifier
                     .weight(1f)
-
             )
             ColumnComposable(
                 stringResource(R.string.TitleComposableColumn),
                 stringResource(R.string.ContentComposableColumn),
-                modifier = modifier
+                modifier = Modifier
                     .weight(1f)
             )
         }
