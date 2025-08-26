@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -67,9 +68,7 @@ fun Compose(title: String, content: String, backgroundColor: Long, modifier: Mod
 // fonction composable pour tous les composables
 @Composable
 fun AllComposes(modifier: Modifier = Modifier) {
-    Column (
-        modifier = modifier.fillMaxSize()
-    ) {
+    Column {
         Row (
             modifier = Modifier
                 .weight(1f) // la ligne occupe 1/2 de l'espace disponible
